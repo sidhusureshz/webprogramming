@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>College Registration Form</title>
+</head>
+<body bgcolor="#f0f8ff">  <!-- Set page background color here -->
+
+  <h1 align="center">KMCT College of Engineering</h1>
+
+ <form action="timetable.html" bgcolor="#ffffff"> 
+    Full Name:<br>
+    <input type="text" name="fullname" required><br><br>
+
+    Date of Birth:<br>
+    <input type="date" name="dob" required><br><br>
+
+    Gender:<br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female"> Female
+    <input type="radio" name="gender" value="Other"> Other<br><br>
+
+    Username (Email):<br>
+    <input type="email" name="username" required><br><br>
+
+    Password:<br>
+    <input type="password" name="password" required><br>
+   
+    <small><i>(Show/Hide)</i></small><br><br>
+
+    Phone Number:<br>
+    <input type="tel" name="phone" required><br><br>
+
+    Address:<br>
+    <textarea name="address" rows="4" cols="40"></textarea><br><br>
+
+    Course:<br>
+    <select name="course">
+      <option>Master of Computer Applications</option>
+      <option>MSc of Computer Science</option>
+      <option>Master of Business Administration</option>
+      <option>BTech</option>
+    </select><br><br>
+
+    Hobbies:<br>
+    <input type="checkbox" name="hobby" value="Reading"> Reading
+    <input type="checkbox" name="hobby" value="Sports"> Sports
+    <input type="checkbox" name="hobby" value="Music"> Music
+    <input type="checkbox" name="hobby" value="Travel"> Travel<br><br>
+
+    <input type="submit" value="Register">
+    <input type="reset" value="Reset">
+  </form>
+</body>
+</html>
+
