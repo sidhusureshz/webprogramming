@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Calendar Generator</title>
+   
+</head>
+
+    <h1><center>Calendar Generator</center></h1>
+    <style>
+        body{
+    text-align:center;
+    }
+    table,th,td{
+    border:1px solid black;
+    border-collapse:collapse;
+    margin-bottom:10px;
+    padding:5px;
+    text-align:center;
+    margin:auto;
+    }
+</style>
+<body bgcolor="magenda";>
+
+    <script>
+
+        var year = prompt("Enter a year (e.g., 2025):");
+        year = parseInt(year);
+        var months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        document.write(`<h2>Calendar for ${year}</h2>`);
+
+        for (let month = 0; month < 12; month++) {
+            document.write(`<div class='month'><h3>${months[month]}</h3>`);
+            document.write("<table>");
+            document.write("<tr>");
+   
+            for (let d = 0; d < 7; d++) {
+                document.write(`<th>${days[d]}</th>`);
+            }
+            document.write("</tr><tr>");
+
+            let firstDay = new Date(year, month, 1).getDay();
+            let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+          
+            for (let i = 0; i < firstDay; i++) {
+                document.write("<td></td>");
+            }
+
+           
+            for (let day = 1; day <= daysInMonth; day++) {
+                let currentDay = new Date(year, month, day).getDay();
+                document.write(`<td>${day}</td>`);
+         
+                if (currentDay === 6 && day !== daysInMonth) {
+                    document.write("</tr><tr>");
+                }
+            }
+
+            document.write("</tr></table></div>");
+        }
+    </script>
+
+</body>
+</html>
+
