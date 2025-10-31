@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CHANGE COLOR</title>
+</head>
+<body>
+<h1><u><b><center>CHANGE THE BACKGROUND COLOR</center></u><b></h1>
+<center><button type="button" onclick="clrBtn();"><b>CHANGE COLOR</b></button></center>
+<script>
+let colors=["blue","green","coral","yellow","red","gray","pink"];
+let index=0;
+
+function clrBtn()
+{
+document.body.style.backgroundColor=colors[index];
+index=(index+1)% colors.length;
+}
+</script>
+</body>
+</html>
+
