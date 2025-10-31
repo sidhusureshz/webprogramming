@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mouse Over Event</title>
+  <script>
+    function showNewContent() {
+      document.getElementById('myImage').src = 'images.png';
+      document.getElementById('myText').innerHTML = 'Let Me See Your Brain??';
+    }
+
+    function showOriginalContent() {
+      document.getElementById('myImage').src ='s.jpg';
+      document.getElementById('myText').innerHTML ='Dont touch me..I Will Eat Your Brain!!';
+    }
+  </script>
+</head>
+<body style="background-color:darkorange; text-align:center;">
+  <h2>Mouse Over Event</h2>
+  <p id="myText">Wanna Pet me??</p>
+  <img id="myImage" src="s.jpg" width="300" height="400"
+       onmouseover="showNewContent()" onmouseout="showOriginalContent()">
+</body>
+</html>
+
