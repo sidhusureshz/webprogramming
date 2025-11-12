@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>ONLINE EXAM - HTML BASICS</h2>
+<p id="timer"></p>
+
+<form id="examform">
+<p>Register Number:
+<input type="text" id="reg" required><br></p>
+
+<h3>1. What does HTML stand for?</h3>
+<input type="radio" name="q1" value="HyperText Markup Language">HyperText Markup Language<br>
+<input type="radio" name="q1" value="HighText Machine Language">HighText Machine Language<br>
+<input type="radio" name="q1" value="HyperText Machine Learning">HyperText Machine Learning<br>
+<input type="radio" name="q1" value="HyperTransfer Markup Language">HyperTransfer Markup Language<br>
+
+<h3>2. Which HTML tag is used to create a hyperlink?</h3>
+<input type="radio" name="q2" value="a">&lt;a&gt;<br>
+<input type="radio" name="q2" value="link">&lt;link&gt;<br>
+<input type="radio" name="q2" value="href">&lt;href&gt;<br>
+<input type="radio" name="q2" value="hyper">&lt;hyper&gt;<br>
+
+<h3>3. Which HTML element is used to display an image?</h3>
+<input type="radio" name="q3" value="img">&lt;img&gt;<br>
+<input type="radio" name="q3" value="image">&lt;image&gt;<br>
+<input type="radio" name="q3" value="picture">&lt;picture&gt;<br>
+<input type="radio" name="q3" value="src">&lt;src&gt;<br>
+
+<h3>4. What is the correct HTML tag for inserting a line break?</h3>
+<input type="radio" name="q4" value="br">&lt;br&gt;<br>
+<input type="radio" name="q4" value="lb">&lt;lb&gt;<br>
+<input type="radio" name="q4" value="break">&lt;break&gt;<br>
+<input type="radio" name="q4" value="newline">&lt;newline&gt;<br>
+
+<h3>5. Which HTML tag is used to make text bold?</h3>
+<input type="radio" name="q5" value="b">&lt;b&gt;<br>
+<input type="radio" name="q5" value="strong">&lt;strong&gt;<br>
+<input type="radio" name="q5" value="bold">&lt;bold&gt;<br>
+<input type="radio" name="q5" value="both">Both &lt;b&gt; and &lt;strong&gt;<br>
+
+<h3>6. Which tag is used to create a numbered list?</h3>
+<input type="radio" name="q6" value="ol">&lt;ol&gt;<br>
+<input type="radio" name="q6" value="ul">&lt;ul&gt;<br>
+<input type="radio" name="q6" value="list">&lt;list&gt;<br>
+<input type="radio" name="q6" value="dl">&lt;dl&gt;<br>
+
+<h3>7. What attribute is used to provide a unique name to an HTML element?</h3>
+<input type="radio" name="q7" value="id">id<br>
+<input type="radio" name="q7" value="class">class<br>
+<input type="radio" name="q7" value="name">name<br>
+<input type="radio" name="q7" value="key">key<br>
+
+<h3>8. Which HTML tag is used to define a table row?</h3>
+<input type="radio" name="q8" value="tr">&lt;tr&gt;<br>
+<input type="radio" name="q8" value="td">&lt;td&gt;<br>
+<input type="radio" name="q8" value="th">&lt;th&gt;<br>
+<input type="radio" name="q8" value="table">&lt;table&gt;<br>
+
+<h3>9. Which attribute specifies an alternate text for an image?</h3>
+<input type="radio" name="q9" value="alt">alt<br>
+<input type="radio" name="q9" value="title">title<br>
+<input type="radio" name="q9" value="name">name<br>
+<input type="radio" name="q9" value="src">src<br>
+
+<h3>10. Which HTML tag is used to define the largest heading?</h3>
+<input type="radio" name="q10" value="h1">&lt;h1&gt;<br>
+<input type="radio" name="q10" value="h6">&lt;h6&gt;<br>
+<input type="radio" name="q10" value="head">&lt;head&gt;<br>
+<input type="radio" name="q10" value="heading">&lt;heading&gt;<br>
+
+<button type="button" onclick="submitExam()">Submit</button>
+<button type="reset">Reset</button>
+</form>
+
+<h3 id="result"></h3>
+
+<script>
+let timeLeft = 60;
+let timer;
+
+function startTimer() {
+  clearInterval(timer);
+  timeLeft = 60;
+  document.getElementById("timer").innerHTML = " Time Left: " + timeLeft + " seconds";
+  
+  timer = setInterval(function(){
+    if(timeLeft > 0){
+      document.getElementById("timer").innerHTML = "Time Left: " + timeLeft + " seconds";
+      timeLeft--;
+    } else {
+      clearInterval(timer);
+      alert("Time up! Submitting your exam automatically.");
+      submitExam();
+    }
+  }, 1000);
+}
+
+startTimer(); // start on load
+
+function submitExam(){
+    let score = 0;
+    let regNum = document.getElementById("reg").value;
+    if (regNum === ""){
+        alert("Please enter your register number");
+        return;
+    }
+
+    // correct answers
+    const answers = {
+        q1: "HyperText Markup Language",
+        q2: "a",
+        q3: "img",
+        q4: "br",
+        q5: "both",
+        q6: "ol",
+        q7: "id",
+        q8: "tr",
+        q9: "alt",
+        q10: "h1"
+    };
+
+    for (let i = 1; i <= 10; i++) {
+        let q = document.querySelector(`input[name="q${i}"]:checked`);
+        if (q && q.value === answers[`q${i}`]) {
+            score++;
+        }
+    }
+
+    alert("Register No: " + regNum + "\nYour Score: " + score + "/10");
+
+    clearInterval(timer);
+    document.getElementById("examform").reset();
+    document.getElementById("result").innerHTML = "";
+    startTimer(); 
+}
+</script>
+</body>
+</html>
+
