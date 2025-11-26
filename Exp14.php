@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <title>KSEB Bill</title>
@@ -53,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $billToDate = date("d/m/Y");
     $billFromDate = date("d/m/Y", strtotime("-2 months"));
+    $generatedDate = date("d/m/Y"); // NEW LINE
 
     echo "<div class='bill-container'>
             <div class='header'>
@@ -63,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <tr><td><strong>Consumer ID:</strong> C#$consumerId</td></tr>
                 <tr><td><strong>Name:</strong> $name</td></tr>
                 <tr><td><strong>Bill Period:</strong> $billFromDate to $billToDate</td></tr>
-                <tr><td><strong>Issued Date:</strong>$billToDate</td></tr>
-
+                <tr><td><strong>Issued Date:</strong> $billToDate</td></tr>
+                <tr><td><strong>Generated Date:</strong> $generatedDate</td></tr>
             </table>
 
             <table>
@@ -88,3 +88,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+
